@@ -6,6 +6,7 @@ gem 'rails-api', '~> 0.4.0'
 gem 'puma', '~> 3.7'
 gem 'pg', '~> 0.19'
 gem 'mongoid', '~>5.1'
+gem 'rack-cors', '~> 0.4.0'
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
