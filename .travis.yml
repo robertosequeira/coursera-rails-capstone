@@ -1,0 +1,12 @@
+language: ruby
+
+bundler_args: --without production
+
+services:
+  - postgresql
+  - mongodb
+
+before_script:
+  - sleep 15
+  - mongo capstone_test --eval 'db.addUser("travis", "test");'
+  - psql -c 'create database capstone_test;' -U postgres
