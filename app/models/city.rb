@@ -1,1 +1,3 @@
-class City < ActiveRecord::Base; end
+class City < ActiveRecord::Base
+  validates_presence_of :name
+end
