@@ -1,18 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe State, type: :model do
-  subject { State.new }
 
-  context 'valid' do
-    it 'name' do
-      subject.name = 'City Name'
-      expect(subject).to be_valid
-    end
+  it 'has a valid factory' do
+    expect(build(:state)).to be_valid
   end
 
-  context 'invalid' do
-    it 'name' do
-      expect(subject).not_to be_valid
-    end
+  it 'is invalid without a name' do
+    expect(build(:state, name: nil)).not_to be_valid
   end
+
 end
