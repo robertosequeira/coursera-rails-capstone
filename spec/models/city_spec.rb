@@ -7,8 +7,7 @@ RSpec.describe City, type: :model do
   end
 
   it 'creates a city' do
-    city = create(:city)
-    expect(city).to be_persisted
+    expect(create(:city)).to be_persisted
   end
 
   it 'is invalid without a name' do
