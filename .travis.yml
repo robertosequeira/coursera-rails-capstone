@@ -1,10 +1,10 @@
 language: ruby
 
-bundler_args: --without production
-
 services:
   - postgresql
   - mongodb
+
+bundler_args: --without production
 
 before_script:
   - sleep 15
