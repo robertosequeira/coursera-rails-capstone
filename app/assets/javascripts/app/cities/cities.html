@@ -1,0 +1,41 @@
+<div>
+  <div class="row">
+    <form class="col-md-4">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input name="name" class="form-control" ng-model="citiesCtrl.city.name" required="required"
+               placeholder="City name">
+      </div>
+      <br>
+      <div class="pull-right" ng-if="!citiesCtrl.city.id">
+        <button type="submit"
+                class="btn btn-success"
+                ng-click="citiesCtrl.create()">Create a new City
+        </button>
+      </div>
+      <div class="pull-right" ng-if="citiesCtrl.city.id">
+        <button type="submit"
+                class="btn btn-primary"
+                ng-click="citiesCtrl.update()">Update City
+        </button>
+        <button type="submit"
+                class="btn btn-danger"
+                ng-click="citiesCtrl.remove()">Delete City
+        </button>
+      </div>
+    </form>
+  </div>
+  <br>
+  <div class="row clearfix">
+    <table class="table table-striped table-condensed">
+      <tr>
+        <th>City Name</th>
+      </tr>
+      <tr ng-repeat="city in citiesCtrl.cities | orderBy:'name'">
+        <td>
+          <a ng-click="citiesCtrl.edit(city)">{{city.name}}</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

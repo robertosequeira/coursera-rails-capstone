@@ -1,1 +1,0 @@
-class SpaController < ApplicationController; end

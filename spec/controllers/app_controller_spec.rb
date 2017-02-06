@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe SpaController, type: :controller do
+RSpec.describe AppController, type: :controller do
 
   describe 'GET #index' do
     it 'returns http success' do
