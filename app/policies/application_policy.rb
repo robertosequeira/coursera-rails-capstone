@@ -28,7 +28,7 @@ class ApplicationPolicy
 
   def customer?
     if @record.respond_to?(:id)
-      @user.has_role([Role::CUSTOMER], @record.model_name.name, @record.id)
+      @user.has_role([Role::CUSTOMER], @record.model_name.name, @record.id) &&  @record.user_id == @user.id
     else
       @user.has_role([Role::CUSTOMER], @record.name)
     end

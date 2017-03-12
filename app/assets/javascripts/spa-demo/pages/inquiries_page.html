@@ -1,9 +1,20 @@
 <div class="inquiries-area" sd-inquiries-authz>
   <div class="page-header">
-    <h1>Inquiries <small>Only customer users</small></h1>
+    <h1>Inquiries
+      <small>Only "customer" users can create and update inquiries</small>
+    </h1>
   </div>
 
   <div class="well">
+    <div class="col-xs-offset-2 text-muted">
+      <p><b>For testing:</b></p>
+      <p>Users with <span class="text-info">customer</span> role assigned to them:</p>
+      <ol>
+        <li><span class="text-info">roberto@foo.org / password10</span></li>
+        <li><span class="text-info">mario@bros.org / password11</span></li>
+      </ol>
+    </div>
+
     <sd-inquiry-editor authz="vm.authz"></sd-inquiry-editor>
   </div>
 

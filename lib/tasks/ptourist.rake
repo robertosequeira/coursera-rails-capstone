@@ -1,8 +1,8 @@
 namespace :ptourist do
-  MEMBERS=["mike", "carol", "alice", "greg", "marsha", "peter", "jan", "bobby", "cindy", "sam", "roberto"]
+  MEMBERS=["mike", "carol", "alice", "greg", "marsha", "peter", "jan", "bobby", "cindy", "sam", "roberto", "mario"]
   ADMINS=["mike", "carol"]
   ORIGINATORS=["carol", "alice"]
-  CUSTOMERS = %w( roberto )
+  CUSTOMERS = %w( roberto mario )
   BOYS=["greg", "peter", "bobby"]
   GIRLS=["marsha", "jan", "cindy"]
 
@@ -15,6 +15,8 @@ namespace :ptourist do
             "franklin"
           when "roberto"
             "sequeira"
+          when "mario"
+            "bros"
           else
             "brady"
         end
@@ -25,6 +27,8 @@ namespace :ptourist do
     case first_name
       when 'roberto'
         "#{first_name}@foo.org"
+      when 'mario'
+        "#{first_name}@bros.org"
       else
         "#{first_name}@bbunch.org"
     end
