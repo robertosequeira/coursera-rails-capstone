@@ -1,9 +1,9 @@
 <div class="inquiry-list" ng-show="$ctrl.authz.canQuery">
 
-  <table class="table table-striped" ng-if="$ctrl.items">
+  <table class="table table-striped table-hover" ng-if="$ctrl.items">
     <tr>
       <th>Inquiry</th>
-      <th>Date</th>
+      <th class="date">Date</th>
     </tr>
     <tr ng-repeat="item in $ctrl.items | orderBy:'-created_at'">
       <td>
@@ -13,7 +13,7 @@
         </a>
       </td>
       <td>
-        {{item.created_at | date:'MM/dd/yyyy'}}
+        {{item.created_at | date:'medium'}}
       </td>
     </tr>
   </table>

@@ -13,3 +13,9 @@ sd-thing-editor form {
   padding-left: 15px;
   padding-right: 15px;
 }
+
+.inquiry-list table tr th:last-child,
+.inquiry-list table td:last-child {
+  width: 200px;
+  text-align: center;
+}

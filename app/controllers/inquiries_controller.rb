@@ -57,6 +57,6 @@ class InquiriesController < ApplicationController
   end
 
   def inquiry_params
-    params.require(:inquiry).permit(:user_id, :text)
+    params.require(:inquiry).permit(:text)
   end
 end
