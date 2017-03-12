@@ -3,6 +3,7 @@ class Role < ActiveRecord::Base
   ORIGINATOR="originator"
   ORGANIZER="organizer"
   MEMBER="member"
+  CUSTOMER="customer"
 
   belongs_to :user, inverse_of: :roles
 

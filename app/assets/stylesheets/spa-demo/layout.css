@@ -1,10 +1,10 @@
-/* 
+/*
  * layout.css
  */
 
- body {
-  background-color: #d2b48c;
- }
+ /*body {*/
+  /*background-color: #d2b48c;*/
+ /*}*/
 
 form .invalid {
   color: red;
@@ -26,6 +26,6 @@ form .invalid {
   background-color: inherit;
 }
 
-button:disabled {
-    color:#717782;
-}
+/*button:disabled {*/
+    /*color:#717782;*/
+/*}*/

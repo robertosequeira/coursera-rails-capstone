@@ -1,25 +1,33 @@
 namespace :ptourist do
-  MEMBERS=["mike", "carol", "alice", "greg", "marsha", "peter", "jan", "bobby", "cindy", "sam"]
+  MEMBERS=["mike", "carol", "alice", "greg", "marsha", "peter", "jan", "bobby", "cindy", "sam", "roberto"]
   ADMINS=["mike", "carol"]
   ORIGINATORS=["carol", "alice"]
+  CUSTOMERS = %w( roberto )
   BOYS=["greg", "peter", "bobby"]
   GIRLS=["marsha", "jan", "cindy"]
 
   def user_name first_name
-    last_name = (first_name=="alice") ? "nelson" : "brady"
-    case first_name
-      when "alice"
-        last_name = "nelson"
-      when "sam"
-        last_name = "franklin"
-      else
-        last_name = "brady"
-    end
+    last_name =
+        case first_name
+          when "alice"
+            "nelson"
+          when "sam"
+            "franklin"
+          when "roberto"
+            "sequeira"
+          else
+            "brady"
+        end
     "#{first_name} #{last_name}".titleize
   end
 
   def user_email first_name
-    "#{first_name}@bbunch.org"
+    case first_name
+      when 'roberto'
+        "#{first_name}@foo.org"
+      else
+        "#{first_name}@bbunch.org"
+    end
   end
 
   def get_user first_name
@@ -44,6 +52,10 @@ namespace :ptourist do
 
   def member_users
     @member_users ||= users(MEMBERS)
+  end
+
+  def customer_users
+    @customer_users ||= users(CUSTOMERS)
   end
 
   def boy_users

@@ -1,0 +1,20 @@
+<div class="inquiry-list" ng-show="$ctrl.authz.canQuery">
+
+  <table class="table table-striped" ng-if="$ctrl.items">
+    <tr>
+      <th>Inquiry</th>
+      <th>Date</th>
+    </tr>
+    <tr ng-repeat="item in $ctrl.items | orderBy:'-created_at'">
+      <td>
+        <a ui-sref="inquiries({id:item.id})">
+          <span class="inquiry_id id">{{item.id}}</span>
+          {{item.text}}
+        </a>
+      </td>
+      <td>
+        {{item.created_at | date:'MM/dd/yyyy'}}
+      </td>
+    </tr>
+  </table>
+</div>

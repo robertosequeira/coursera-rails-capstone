@@ -14,7 +14,8 @@
     service.user=null;        //holds result from server
     service.userPromise=null; //promise during server request
     service.admin=false;
-    service.originator=[]
+    service.originator=[];
+    service.customer=false;
 
     service.getAuthorizedUser=getAuthorizedUser;
     service.getAuthorizedUserId=getAuthorizedUserId;
@@ -23,6 +24,7 @@
     service.isOriginator=isOriginator;
     service.isOrganizer=isOrganizer;
     service.isMember=isMember;
+    service.isCustomer=isCustomer;
     service.hasRole=hasRole;
 
     activate();
@@ -42,9 +44,10 @@
 
       service.admin=false;
       service.originator=[];
+      service.customer=false;
       whoAmI.get().$promise.then(
         function(response){processUserRoles(response, deferred);},
-        function(response){processUserRoles(response, deferred);});      
+        function(response){processUserRoles(response, deferred);});
     }
 
     //process application-level roles returned from server
@@ -55,14 +58,16 @@
           service.admin=true;
         } else if (value.role_name=="originator") {
           service.originator.push(value.resource);
-        }          
-      });      
+        } else if (value.role_name == "customer") {
+          service.customer = true;
+        }
+      });
 
       service.user=response;
       service.userPromise=null;
       deferred.resolve(response);
       console.log("processed roles", service.user);
-    }    
+    }
 
     function getAuthorizedUser() {
       var deferred = $q.defer();
@@ -90,7 +95,7 @@
     //return true if the user has an application admin role
     function isAdmin() {
       return service.user && service.admin && true;
-    }    
+    }
 
     //return true if the current user has an organizer role for the instance
     //users with this role have the lead when modifying the instance
@@ -111,13 +116,19 @@
       return !item ? false : hasRole(item.user_roles, 'member') || isOrganizer(item);
     }
 
+    //return true if the current user has an customer role for the instance
+    //users with this role have the lead when modifying the instance
+    function isCustomer(item) {
+      return !item ? service.customer : hasRole(item.user_roles, 'customer');
+    }
+
     //return true if the collection of roles contains the specified role
     function hasRole(user_roles, role) {
       if (role) {
         return !user_roles ? false : user_roles.indexOf(role) >=0;
       } else {
-        return !user_roles ? true : user_roles.length==0 
+        return !user_roles ? true : user_roles.length==0
       }
-    } 
+    }
   }
 })();

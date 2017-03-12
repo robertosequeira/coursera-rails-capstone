@@ -2,7 +2,9 @@
 form.thing-form .id,
 div.thing-list .id,
 form.image-form .id,
-div.image-list .id {
+div.image-list .id,
+div.inquiry-list .id,
+form.inquiry-form .id {
   display: none;
 }
 

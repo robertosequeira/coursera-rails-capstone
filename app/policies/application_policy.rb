@@ -26,6 +26,14 @@ class ApplicationPolicy
     @user.has_role([Role::ORIGINATOR], @record.name)
   end
 
+  def customer?
+    if @record.respond_to?(:id)
+      @user.has_role([Role::CUSTOMER], @record.model_name.name, @record.id)
+    else
+      @user.has_role([Role::CUSTOMER], @record.name)
+    end
+  end
+
   def index?
     false
   end
