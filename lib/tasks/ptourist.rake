@@ -133,6 +133,10 @@ namespace :ptourist do
       user.add_role(Role::ORIGINATOR, Thing).save
     end
 
+    customer_users.each do |user|
+      user.add_role(Role::CUSTOMER, Inquiry).save
+    end
+
     puts "users:#{User.pluck(:name)}"
   end
 
