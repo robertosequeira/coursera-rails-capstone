@@ -1,0 +1,16 @@
+<div>
+  <h4 style="text-align: center">Search things by type</h4>
+  <div class="input-group" style="padding: 0 30px;">
+    <input type="text" class="form-control" placeholder="Search for museum, taxi, tour, aquarium, etc" ng-model="$ctrl.typeSearch">
+    <span class="input-group-btn">
+      <button class="btn btn-danger" type="button" ng-click="$ctrl.resetSearch()">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Reset
+      </button>
+      <button class="btn btn-primary" type="button" ng-click="$ctrl.searchByType()">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search!
+      </button>
+    </span>
+  </div>
+</div>
+
+<hr>

@@ -34,6 +34,11 @@ div.thing-info {
   margin-left: 5px;
   position: relative;
 }
+
+div.thing-info span.label {
+  text-transform: capitalize;
+}
+
 div.thing-info .glyphicon {
   position: absolute;
   top: 60px;
@@ -49,7 +54,7 @@ div.thing-info .glyphicon-chevron-right {
 div.thing-info .overlay {
   color: white;
   opacity: 0.0;
-  z-index: 1002;  
+  z-index: 1002;
   cursor: pointer;
 }
 div.thing-info .overlay:hover {

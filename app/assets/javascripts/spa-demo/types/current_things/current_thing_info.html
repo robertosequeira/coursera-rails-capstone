@@ -1,0 +1,21 @@
+<div class="thing-info">
+  <h4>{{$ctrl.link.thing_name}}</h4>
+
+  <span class="id thing_id">{{$ctrl.link.thing_id}}</span>
+
+  <p><span class="label label-info">{{ $ctrl.thing.tag }}</span></p>
+
+  <div class="description">
+    <p>{{$ctrl.thing.description}}</p>
+  </div>
+
+  <div class="notes">
+    <p>{{$ctrl.thing.notes}}</p>
+  </div>
+
+  <span class="overlay glyphicon glyphicon-chevron-left"
+        ng-click="$ctrl.previousThing()"></span>
+
+  <span class="overlay glyphicon glyphicon-chevron-right"
+        ng-click="$ctrl.nextThing()"></span>
+</div>
